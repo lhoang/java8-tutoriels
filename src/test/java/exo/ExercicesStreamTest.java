@@ -80,7 +80,8 @@ public class ExercicesStreamTest {
 
         // faire une moyenne des âges des hommes et des femmes
         Map<String, Double> mapAverageAgeBySex = exo.averageAgeBySex(myHeroes);
-        softly.assertThat(mapAverageAgeBySex).contains(entry("F", 22.0),
+        softly.assertThat(mapAverageAgeBySex).contains(
+                entry("F", 22.0),
                 entry("M", 33.0));
         softly.assertThat(exo.averageAgeBySex(Lists.emptyList())).isEmpty();
 

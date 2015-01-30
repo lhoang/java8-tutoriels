@@ -87,7 +87,7 @@ public class ExercicesStream implements IExercicesStream {
 
     /**
      * Retourner la liste de personnes qui écoutent un artiste très populaire.
-     * Implémentation en Java 8
+     * Implémentation en Java 8 de la méthode IExercicesStream#getMainstreamMusicListeners()
      * @param persons Liste de personnes
      * @return liste de personnes qui écoutent un artiste très populaire
      */
