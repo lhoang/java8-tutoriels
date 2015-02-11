@@ -1,6 +1,7 @@
 package bean;
 
 import java.util.List;
+import java.util.Optional;
 
 /**
  * Bean pour un super bonhomme.
@@ -27,6 +28,11 @@ public class Person {
      * Liste d'artistes dans l'iPod de la personne.
      */
     public List<Artiste> dansMonIpod;
+
+    /**
+     * Responsable de la personne.
+     */
+    public Optional<Person> chef = Optional.empty();
 
     /**
      * Constructeur.

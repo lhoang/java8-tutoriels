@@ -8,7 +8,7 @@ import java.util.*;
 /**
  * Interface pour les exercices sur les Streams Java 8.
  */
-public interface IExercicesStream {
+public interface IExerciceStream {
     /**
      * Ordonner par âge croissant et extraire le nom.
      *
@@ -64,7 +64,7 @@ public interface IExercicesStream {
      * @param personnes Liste de personnes
      * @return liste de personnes qui écoutent un artiste très populaire
      */
-    static List<Person> getMainstreamMusicListeners(List<Person> personnes) {
+    default List<Person> getMainstreamMusicListeners(List<Person> personnes) {
         List<Person> listeners = new ArrayList<>();
         for (Person person : personnes) {
             boolean isBestSeller = false;

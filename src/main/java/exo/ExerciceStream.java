@@ -10,7 +10,7 @@ import java.util.Map;
 /**
  * Exercices sur les Streams Java 8.
  */
-public class ExercicesStream implements IExercicesStream {
+public class ExerciceStream implements IExerciceStream {
 
     /**
      * Ordonner par âge croissant et extraire le nom.

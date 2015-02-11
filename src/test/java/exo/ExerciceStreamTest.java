@@ -23,15 +23,15 @@ import static org.assertj.core.data.MapEntry.entry;
  * http://docs.oracle.com/javase/tutorial/collections/streams/reduction.html
  */
 
-public class ExercicesStreamTest {
+public class ExerciceStreamTest {
 
     private List<Person> myHeroes;
 
-    private IExercicesStream exo;
+    private IExerciceStream exo;
 
     @Before
     public void setUp() throws Exception {
-        exo = new ExercicesStream();
+        exo = new ExerciceStream();
         myHeroes = Lists.newArrayList(
                 new Person("Batman", 35, "M"),
                 new Person("Daredevil", 28, "M"),
@@ -134,7 +134,7 @@ public class ExercicesStreamTest {
         );
 
         List<Person> personnes = Lists.newArrayList(p1, p2, p3, p4, p5, p6);
-        List<Person> oldResult = IExercicesStream.getMainstreamMusicListeners(personnes);
+        List<Person> oldResult = exo.getMainstreamMusicListeners(personnes);
         List<Person> newResult = exo.getMainstreamMusicListenersJava8(personnes);
         assertThat(newResult).isEqualTo(oldResult);
     }
