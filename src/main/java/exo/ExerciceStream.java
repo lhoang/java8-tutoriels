@@ -9,6 +9,11 @@ import java.util.Map;
 
 /**
  * Exercices sur les Streams Java 8.
+ *
+ * http://winterbe.com/posts/2014/07/31/java8-stream-tutorial-examples/
+ * http://soat.developpez.com/tutoriels/java/projet-lambda-java8/
+ * https://www.techempower.com/blog/2013/03/26/everything-about-java-8/
+ * http://docs.oracle.com/javase/tutorial/collections/streams/reduction.html
  */
 public class ExerciceStream implements IExerciceStream {
 
@@ -86,7 +91,7 @@ public class ExerciceStream implements IExerciceStream {
 
 
     /**
-     * Retourner la liste de personnes qui écoutent un artiste très populaire.
+     * Retourner la liste, classée par ordre alphabétique, de personnes qui écoutent un artiste très populaire.
      * Implémentation en Java 8 de la méthode IExercicesStream#getMainstreamMusicListeners()
      * @param persons Liste de personnes
      * @return liste de personnes qui écoutent un artiste très populaire

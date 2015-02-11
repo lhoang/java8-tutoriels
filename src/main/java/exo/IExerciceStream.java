@@ -59,7 +59,7 @@ public interface IExerciceStream {
     Map<String, Double> averageAgeBySex(List<Person> persons);
 
     /**
-     * Retourner la liste de personnes qui écoutent un artiste très populaire.
+     * Retourner la liste, classée par ordre alphabétique, de personnes qui écoutent un artiste très populaire.
      *
      * @param personnes Liste de personnes
      * @return liste de personnes qui écoutent un artiste très populaire

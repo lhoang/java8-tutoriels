@@ -136,7 +136,7 @@ public class ExerciceStreamTest {
         List<Person> personnes = Lists.newArrayList(p1, p2, p3, p4, p5, p6);
         List<Person> oldResult = exo.getMainstreamMusicListeners(personnes);
         List<Person> newResult = exo.getMainstreamMusicListenersJava8(personnes);
-        assertThat(newResult).containsAll(oldResult);
+        assertThat(newResult).isEqualTo(oldResult);
     }
 
 }
