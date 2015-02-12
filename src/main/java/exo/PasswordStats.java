@@ -119,7 +119,7 @@ public class PasswordStats implements IPasswordStats {
 
     /**
      * Compte les mots de passe en fonction de leur position dans le mot.
-     * Indices :
+     * Indices si vous êtes bloqué:
      * 1/ Filtrer
      * 2/ Transformer (map) en Liste de positions du caractère spécial
      *    (avec exo.IPasswordStats#getIndexOfSpecialChar(java.lang.String))
@@ -138,7 +138,7 @@ public class PasswordStats implements IPasswordStats {
 
     /**
      * Renvoie la liste des mots de passe avec caractère spécial en fonction de la position du caractère spécial.
-     * Indices :
+     * Indices si vous êtes bloqué:
      * 1/ Filtrer
      * 2/a Pour chaque password, récupérer les positions des caractères spéciaux,
      * 2/b Parcourir ces positions et construire une paire (Position, Password)
@@ -158,7 +158,8 @@ public class PasswordStats implements IPasswordStats {
 
     /**
      * Renvoie la liste des mots de passe avec un seul caractère spécial à la fin.
-     * Indices : filter directement en vérifiant qu'il n'y a qu'un caractère spécial
+     * Indices si vous êtes bloqué:
+     * filter directement en vérifiant qu'il n'y a qu'un caractère spécial
      * et que sa position est à la fin du mot de passe.
      *
      * @param allPasswords Stream de mots de passe
