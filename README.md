@@ -9,7 +9,7 @@ Ce projet contient des tutoriels pour se faire la main sur les nouvelles API de 
     <mirror>
 	<mirrorOf>central</mirrorOf>
 	<name>ProxyMavenRATP</name>
-	<url>http://r-factory.info.ratp/artifactory/releases</url>
+	<url>http://factory.info.ratp/artifactory/releases</url>
 	<id>ProxyMavenRATP</id>
     </mirror>
   </mirrors>
