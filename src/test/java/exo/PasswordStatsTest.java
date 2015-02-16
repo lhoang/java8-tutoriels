@@ -1,6 +1,7 @@
 package exo;
 
 import org.assertj.core.util.Lists;
+import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
 
@@ -19,10 +20,31 @@ import static org.assertj.core.api.Assertions.failBecauseExceptionWasNotThrown;
 public class PasswordStatsTest {
 
     private IPasswordStats pstats;
+    private Stream<String> stream;
 
     @Before
     public void setUp() throws Exception {
         pstats = new PasswordStats();
+    }
+
+    @After
+    public void tearDown() throws Exception {
+        if (stream != null) {
+            stream.close();
+        }
+    }
+
+    /**
+     * Lecture du fichier et récupération du stream pour le fermer à la fin.
+     * @return Suplier du Stream du fichier.
+     */
+    private Supplier<Stream<String>> readFile() {
+        return () -> {
+            stream = pstats.readResourceAsStream("leaked_passwords.txt");
+                    //.onClose(() -> System.out.println("Close"));
+            return stream;
+        }
+        ;
     }
 
     /**
@@ -67,7 +89,7 @@ public class PasswordStatsTest {
     @Test
     public void count_simple_stats() {
 //        Supplier<Stream<String>> allPasswords = () -> pstats.readResourceAsStream("10k_most_common.txt");
-        Supplier<Stream<String>> allPasswords = () -> pstats.readResourceAsStream("leaked_passwords.txt");
+        Supplier<Stream<String>> allPasswords = readFile();
         long countAllStrong = pstats.getAllStrong(allPasswords).size();
         long countAllWithSpecialChars = pstats.getAllWithSpecialChars(allPasswords).size();
         long countAllWithNumbers = pstats.getAllWithNumbers(allPasswords).size();
@@ -78,9 +100,11 @@ public class PasswordStatsTest {
         assertThat(countAllWithUppercaseAndLowercase).isEqualTo(13457);
     }
 
+
+
     @Test
     public void should_count_all_passwords_with_special_chars_by_position() {
-        Supplier<Stream<String>> allPasswords = () -> pstats.readResourceAsStream("leaked_passwords.txt");
+        Supplier<Stream<String>> allPasswords = readFile();
         Map<Integer, Long> specialCharsCountMap = pstats.countBySpecialCharPosition(allPasswords);
         assertThat(specialCharsCountMap.get(3)).isEqualTo(102);
         assertThat(specialCharsCountMap.get(8)).isEqualTo(108);
@@ -90,7 +114,7 @@ public class PasswordStatsTest {
 
     @Test
     public void should_get_all_passwords_with_special_chars_by_position() throws Exception {
-        Supplier<Stream<String>> allPasswords = () -> pstats.readResourceAsStream("leaked_passwords.txt");
+        Supplier<Stream<String>> allPasswords = readFile();
         Map<Integer, List<String>> posSpecialCharPwd = pstats.getAllBySpecialCharPosition(allPasswords);
         assertThat(posSpecialCharPwd).hasSize(18);
         assertThat(posSpecialCharPwd.get(15))
@@ -99,7 +123,7 @@ public class PasswordStatsTest {
 
     @Test
     public void should_get_all_passwords_with_only_one_sp_char_at_end() throws Exception {
-        Supplier<Stream<String>> allPasswords = () -> pstats.readResourceAsStream("leaked_passwords.txt");
+        Supplier<Stream<String>> allPasswords = readFile();
         List<String> pwdWithOnlyOneLastSpecialChar = pstats.getAllWithOnlyOneLastSpecialChar(allPasswords);
         assertThat(pwdWithOnlyOneLastSpecialChar).hasSize(295)
             .contains("Mybeth!", "Mywholefamily!", "Comeonbaby!");
