@@ -119,13 +119,7 @@ public class PasswordStats implements IPasswordStats {
 
     /**
      * Compte les mots de passe en fonction de leur position dans le mot.
-     * Indices si vous êtes bloqué:
-     * 1/ Filtrer
-     * 2/ Transformer (map) en Liste de positions du caractère spécial
-     *    (avec exo.IPasswordStats#getIndexOfSpecialChar(java.lang.String))
-     * 3/ Ecraser la List<List<Integer>> en Liste<Integer> (flatMap(i -> i.stream()))
-     * 4/ Créer une Map en regroupant par Position et compter les occurrences.
-     *    le lambda x -> x est l'équivalent de Function.identity()
+     * Indices si vous êtes bloqué : voir le readme ou le wiki.
      *
      * @param allPasswords Stream de mots de passe
      * @return Map<Position du char, compte>
@@ -137,15 +131,8 @@ public class PasswordStats implements IPasswordStats {
     }
 
     /**
-     * Renvoie la liste des mots de passe avec caractère spécial en fonction de la position du caractère spécial.
-     * Indices si vous êtes bloqué:
-     * 1/ Filtrer
-     * 2/a Pour chaque password, récupérer les positions des caractères spéciaux,
-     * 2/b Parcourir ces positions et construire une paire (Position, Password)
-     *     avec new AbstractMap.SimpleEntry<>(K, V)
-     * 3/ Ecraser la collection Liste de Liste de paires en liste de paires
-     * 4/ Grouper avec clé en construisant une liste des passwords correspondants
-     *    avec grouping, mapping et toList()
+     * Renvoie la liste des mots de passe avec caractère spécial en fonction des positions des caractères spéciaux.
+     * Indices si vous êtes bloqué : voir le readme ou le wiki.
      *
      * @param allPasswords Stream de mots de passe
      * @return Map<Position du char, Liste des mots de passe.>
