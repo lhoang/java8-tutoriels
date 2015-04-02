@@ -118,7 +118,8 @@ public class PasswordStats implements IPasswordStats {
     }
 
     /**
-     * Compte les mots de passe en fonction de leur position dans le mot.
+     * Compte les mots de passe en fonction de la position des caractères spéciaux dans le mot.
+     * Ex: pour "b1op!", "#bli!", le résultat sera [(0, 1), (4, 2)]
      * Indices si vous êtes bloqué : voir le readme ou le wiki.
      *
      * @param allPasswords Stream de mots de passe
@@ -132,6 +133,7 @@ public class PasswordStats implements IPasswordStats {
 
     /**
      * Renvoie la liste des mots de passe avec caractère spécial en fonction des positions des caractères spéciaux.
+     * Ex: pour "b1op!", "#bli!", le résultat sera [(0, ["#bli!"]), (4, ["blop!, "#bli!])]
      * Indices si vous êtes bloqué : voir le readme ou le wiki.
      *
      * @param allPasswords Stream de mots de passe
