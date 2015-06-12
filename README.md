@@ -2,18 +2,6 @@ Ce projet contient des tutoriels pour se faire la main sur les nouvelles API de 
 
 ## Pré-requis :
 * Maven installé sur son poste (désolé, c'était le plus simple pour gérer les dépendances) et configuré sur IntelliJ
-* Ne pas oublier de bien définir son settings.xml avec
-
-```xml
-<mirrors>
-    <mirror>
-	<mirrorOf>central</mirrorOf>
-	<name>ProxyMavenRATP</name>
-	<url>http://factory.info.ratp/artifactory/releases</url>
-	<id>ProxyMavenRATP</id>
-    </mirror>
-  </mirrors>
-```
 
 ## Exercices
 
